@@ -1,19 +1,20 @@
 :root {
 	@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@400,700;400,700&display=swap');
 	font-family: 'Josefin Sans', sans-serif;
-	width: 100%;
-	font-synthesis: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 
 	--bg-color: #ffffff;
 	--txt-color-completed: hsl(236, 33%, 92%);
 	--txt-color-active: hsl(237, 14%, 26%);
+	--controller-counter-color: hsl(234, 11%, 52%);
+	--input-bg-color: hsl(0, 0%, 98%);
 }
+
 [data-theme='dark'] {
 	--bg-color: hsl(235, 21%, 11%);
 	--txt-color-completed: hsl(233, 14%, 35%);
 	--txt-color-active: hsl(234, 39%, 85%);
+	--controller-counter-color: hsl(234, 39%, 85%);
+	--input-bg-color: hsl(235, 21%, 11%);
 }
 
 body,
@@ -44,28 +45,102 @@ ul {
 
 .appWrapper {
 	max-width: 1440px;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
+	height: 100vh;
 	background-color: var(--bg-color);
 	color: var(--txt-color-active);
 	background-image: url('./../assets/img/bg-desktop-light.jpg');
 	background-repeat: no-repeat;
-	background-size: 100% auto;
-	padding: 60px 100px;
-	.headerWrapper {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin: 0 0 30px 0;
-		min-width: 475px;
-		.headerTitle {
-			color: hsl(0, 0%, 98%);
-			font-size: 2.2em;
-			font-weight: 700;
+	background-size: 100% 19%;
+	padding: 5% 25%;
+	transition:
+		background 0.3s ease-in-out,
+		color 0.3s ease-in-out;
+}
+.headerWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 0 30px 0;
+	min-width: 350px;
+	.headerTitle {
+		color: hsl(0, 0%, 98%);
+		font-size: 2.2em;
+		font-weight: 700;
+	}
+	.themeIcon {
+		width: 100%;
+	}
+}
+.todoListWrapper {
+	border-radius: 25px;
+	.todoList {
+		width: 100%;
+		box-shadow: 2px 5px 5px hsl(234, 39%, 95%);
+		.todoAddWrapper {
+			margin-bottom: 15px;
+			border-radius: 5px;
+			min-height: 50px;
+
+			display: flex;
+			align-items: center;
+			padding: 0 15px;
+			.todoAddCompleted {
+				width: 15px;
+				height: 15px;
+				border-radius: 50px;
+				border: 1px solid hsl(234, 11%, 52%);
+				&:hover {
+					cursor: pointer;
+				}
+			}
+			background-color: var(--input-bg-color);
+			.todoAddInput {
+				border: none;
+				width: 100%;
+				padding: 10px;
+			}
 		}
-		.themeIcon {
+		.todoListBody {
+			border: 25px;
+		}
+		.todoItemWrapper {
+			min-height: 50px;
+			padding: 0 15px;
+			background-color: var(--input-bg-color);
+			border-bottom: 0.2px solid hsl(234, 39%, 85%);
+			min-height: 50px;
+			display: flex;
+			align-items: center;
+			.isCompleteImg {
+				width: 15px;
+				height: 15px;
+				border-radius: 50px;
+				border: 1px solid hsl(234, 11%, 52%);
+				&:hover {
+					cursor: pointer;
+				}
+			}
+			.todoItemInput {
+				min-height: 35px;
+				margin: 0 15px;
+				border: none;
+				width: 90%;
+				background-color: var(--input-bg-color);
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+
+		.todoControllerWrapper {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 			width: 100%;
+			.controllerCounter {
+				font-size: 18px;
+				color: var(--controller-counter-color);
+			}
 		}
 	}
 }
