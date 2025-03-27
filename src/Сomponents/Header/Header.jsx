@@ -4,7 +4,7 @@ import ThemeSwitcher from './ThemeSwitcher/ThemeSwitcher';
 function Header() {
 	return (
 		<header className="headerWrapper">
-			<h1 className="headerTitle">TODO</h1>
+			<span className="headerTitle">TODO</span>
 			<ThemeSwitcher />
 		</header>
 	);

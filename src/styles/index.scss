@@ -1,20 +1,26 @@
 :root {
-	@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@400,700;400,700&display=swap');
-	font-family: 'Josefin Sans', sans-serif;
+	@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400,x`;400,700&display=swap');
 
 	--bg-color: #ffffff;
+	--bg-image: url('./../assets/img/bg-desktop-light.jpg');
 	--txt-color-completed: hsl(236, 33%, 92%);
 	--txt-color-active: hsl(237, 14%, 26%);
-	--controller-counter-color: hsl(234, 11%, 52%);
+	--controller-counter-color: hsl(236, 9%, 61%);
 	--input-bg-color: hsl(0, 0%, 98%);
+	--input-font-color: hsl(235, 19%, 35%);
+	--sorting-menu-color: hsl(234, 11%, 52%);
+	--todo-list-shadow: hsl(233, 11%, 84%);
 }
 
 [data-theme='dark'] {
 	--bg-color: hsl(235, 21%, 11%);
+	--bg-image: url('./../assets/img/bg-desktop-dark.jpg');
 	--txt-color-completed: hsl(233, 14%, 35%);
 	--txt-color-active: hsl(234, 39%, 85%);
 	--controller-counter-color: hsl(234, 39%, 85%);
 	--input-bg-color: hsl(235, 21%, 11%);
+	--input-font-color: hsl(234, 39%, 85%);
+	--todo-list-shadow: hsla(235, 32%, 92%, 0.164);
 }
 
 body,
@@ -44,38 +50,51 @@ ul {
 }
 
 .appWrapper {
+	font-family: 'Josefin Sans', sans-serif;
+
 	max-width: 1440px;
 	height: 100vh;
 	background-color: var(--bg-color);
 	color: var(--txt-color-active);
-	background-image: url('./../assets/img/bg-desktop-light.jpg');
+	background-image: var(--bg-image);
 	background-repeat: no-repeat;
-	background-size: 100% 19%;
-	padding: 5% 25%;
+	background-size: 100% 25%;
+	padding: 5% 30%;
 	transition:
 		background 0.3s ease-in-out,
 		color 0.3s ease-in-out;
 }
+
 .headerWrapper {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin: 0 0 30px 0;
-	min-width: 350px;
+	padding: 0 0 35px 0;
+	min-width: 300px;
+	width: 90%;
 	.headerTitle {
 		color: hsl(0, 0%, 98%);
 		font-size: 2.2em;
-		font-weight: 700;
+		word-spacing: 100%;
+		font-weight: 400;
 	}
 	.themeIcon {
 		width: 100%;
 	}
 }
 .todoListWrapper {
-	border-radius: 25px;
+	width: 90%;
+	input {
+		font-size: 18px;
+
+		background-color: var(--input-bg-color);
+		color: var(--input-font-color);
+	}
+
 	.todoList {
-		width: 100%;
-		box-shadow: 2px 5px 5px hsl(234, 39%, 95%);
+		box-shadow: 0px 10px 20px var(--todo-list-shadow);
+		background-color: var(--input-bg-color);
+		border-radius: 5px;
 		.todoAddWrapper {
 			margin-bottom: 15px;
 			border-radius: 5px;
@@ -84,6 +103,9 @@ ul {
 			display: flex;
 			align-items: center;
 			padding: 0 15px;
+			.addTodoIcon {
+				width: 30px;
+			}
 			.todoAddCompleted {
 				width: 15px;
 				height: 15px;
@@ -93,41 +115,58 @@ ul {
 					cursor: pointer;
 				}
 			}
-			background-color: var(--input-bg-color);
 			.todoAddInput {
+				background-color: var(--input-bg-color);
+
 				border: none;
 				width: 100%;
 				padding: 10px;
 			}
 		}
+
 		.todoListBody {
 			border: 25px;
-		}
-		.todoItemWrapper {
-			min-height: 50px;
-			padding: 0 15px;
-			background-color: var(--input-bg-color);
-			border-bottom: 0.2px solid hsl(234, 39%, 85%);
-			min-height: 50px;
-			display: flex;
-			align-items: center;
-			.isCompleteImg {
-				width: 15px;
-				height: 15px;
-				border-radius: 50px;
-				border: 1px solid hsl(234, 11%, 52%);
-				&:hover {
-					cursor: pointer;
+			.todoItemWrapper {
+				min-height: 50px;
+				padding: 0 15px;
+				border-bottom: 0.2px solid hsl(234, 39%, 85%);
+				min-height: 50px;
+				display: flex;
+				align-items: center;
+				.isCompleteImg {
+					width: 25px;
+					height: 25px;
+					border-radius: 50px;
+
+					border: 1px solid hsl(234, 11%, 52%);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					&:hover {
+						cursor: pointer;
+					}
 				}
-			}
-			.todoItemInput {
-				min-height: 35px;
-				margin: 0 15px;
-				border: none;
-				width: 90%;
-				background-color: var(--input-bg-color);
-				&:hover {
-					cursor: pointer;
+				.completedTask {
+					width: 25px;
+					height: 25px;
+					background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+					border-radius: 50px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					&:hover {
+						cursor: pointer;
+					}
+				}
+				.todoItemInput {
+					min-height: 35px;
+					margin: 0 15px;
+					border: none;
+					width: 100%;
+					background-color: var(--input-bg-color);
+					&:hover {
+						cursor: pointer;
+					}
 				}
 			}
 		}
@@ -136,10 +175,29 @@ ul {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			width: 100%;
+			width: 92%;
+			padding: 0 15px;
 			.controllerCounter {
-				font-size: 18px;
+				font-size: 14px;
 				color: var(--controller-counter-color);
+			}
+			.controllerSorting {
+				.controllerOption:nth-child(2) {
+					margin: 0 10px 0;
+				}
+				ul {
+					font-weight: 400;
+					font-size: 14px;
+					display: flex;
+					color: var(--sorting-menu-color);
+					justify-content: space-around;
+					.controllerOption {
+					}
+				}
+			}
+			.controllerBroom {
+				color: var(--controller-counter-color);
+				font-size: 14px;
 			}
 		}
 	}

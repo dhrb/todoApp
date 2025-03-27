@@ -3,17 +3,31 @@ import TodoAdd from './TodoAdd';
 import TodoItem from './TodoItem';
 import TodoController from './TodoController';
 
-function TodoList() {
+function TodoList({
+	filterHandler,
+	todos,
+	loading,
+	handleAddTodo,
+	handleDeleteTodo,
+	handleToggleComplete,
+}) {
+	const todosLength = todos.length;
 	return (
 		<div className="todoList">
-			<TodoAdd />
+			<TodoAdd handleAddTodo={handleAddTodo} />
 			<div className="todoListBody">
-				<TodoItem />
-				<TodoItem />
-				<TodoItem />
-				<TodoItem />
+				{todos.map((todo) => (
+					<TodoItem
+						key={todo.id}
+						id={todo.id}
+						text={todo.text}
+						completed={todo.completed}
+						handleDeleteTodo={handleDeleteTodo}
+						handleToggleComplete={handleToggleComplete}
+					/>
+				))}
 			</div>
-			<TodoController />
+			<TodoController filterHandler={filterHandler} todosLength={todosLength} />
 		</div>
 	);
 }

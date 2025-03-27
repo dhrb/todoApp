@@ -1,20 +1,23 @@
 import React from 'react';
 
-function TodoController() {
+function TodoController({ todosLength, filterHandler }) {
 	return (
 		<div className="todoControllerWrapper">
 			<div className="controllerCounter">
-				<span>5 items left</span>
+				<span>{todosLength} items left</span>
 			</div>
 			<div className="controllerSorting">
 				<ul className="controllerOptions">
-					<li className="controllerOption">All</li>
-					<li className="controllerOption">Active</li>
-					<li className="controllerOption">Completed</li>
+					<li className="controllerOption" onClick={() => filterHandler('all')}>
+						All
+					</li>
+					<li className="controllerOption" onClick={() => filterHandler('active')}>
+						Active
+					</li>
+					<li className="controllerOption" onClick={() => filterHandler('completed')}>
+						Completed
+					</li>
 				</ul>
-			</div>
-			<div className="controllerBroom">
-				<span className="broomOption">Clean completed</span>
 			</div>
 		</div>
 	);
