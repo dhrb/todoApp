@@ -13,7 +13,7 @@ function TodoItem({ id, text, completed, handleToggleComplete, handleDeleteTodo 
 		try {
 			await handleToggleComplete(id, !isCompleted);
 		} catch (error) {
-			console.log('Ошибка обновления: ' + error.message);
+			console.log('Updating err ' + error.message);
 		}
 	};
 	return (
@@ -21,7 +21,7 @@ function TodoItem({ id, text, completed, handleToggleComplete, handleDeleteTodo 
 			<div
 				className={isCompleted ? 'completedTask' : 'isCompleteImg'}
 				onClick={() => completeHandler(id)}>
-				{isCompleted && <img src={completeIcon} alt="completeicon" className="" />}
+				{isCompleted && <img src={completeIcon} alt="completeicon" className="addTaskIcon" />}
 			</div>
 
 			<input

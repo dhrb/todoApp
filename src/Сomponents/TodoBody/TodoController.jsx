@@ -1,6 +1,7 @@
 import React from 'react';
 
-function TodoController({ todosLength, filterHandler }) {
+function TodoController({ filter, todosLength, filterHandler }) {
+	console.log(filter);
 	return (
 		<div className="todoControllerWrapper">
 			<div className="controllerCounter">
@@ -8,13 +9,19 @@ function TodoController({ todosLength, filterHandler }) {
 			</div>
 			<div className="controllerSorting">
 				<ul className="controllerOptions">
-					<li className="controllerOption" onClick={() => filterHandler('all')}>
+					<li
+						className={filter === 'all' ? 'controllerOptionActive' : 'controllerOption'}
+						onClick={() => filterHandler('all')}>
 						All
 					</li>
-					<li className="controllerOption" onClick={() => filterHandler('active')}>
+					<li
+						className={filter === 'active' ? 'controllerOptionActive' : 'controllerOption'}
+						onClick={() => filterHandler('active')}>
 						Active
 					</li>
-					<li className="controllerOption" onClick={() => filterHandler('completed')}>
+					<li
+						className={filter === 'completed' ? 'controllerOptionActive' : 'controllerOption'}
+						onClick={() => filterHandler('completed')}>
 						Completed
 					</li>
 				</ul>

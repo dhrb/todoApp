@@ -5,10 +5,10 @@ import moonIcon from './../../../assets/img/icon-moon.svg';
 
 function ThemeSwitcher() {
 	const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
-
+	//change theme and save to localStorage
 	useEffect(() => {
 		document.body.setAttribute('data-theme', theme);
-		localStorage.setItem('theme', theme); // Сохраняем тему
+		localStorage.setItem('theme', theme);
 	}, [theme]);
 
 	return (

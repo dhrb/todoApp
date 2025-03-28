@@ -2,7 +2,7 @@ const API_URL = 'https://67e27b5a97fc65f535364992.mockapi.io/api/todos';
 
 export const fetchTodos = async (filter = 'all') => {
 	const url =
-		filter === 'all' ? API_URL : `${API_URL}?isCompleted=${filter === 'completed' ? true : false}`;
+		filter === 'all' ? API_URL : `${API_URL}?completed=${filter === 'completed' ? true : false}`;
 	const response = await fetch(url);
 	if (!response.ok) throw new Error('Error loading todos');
 	return response.json();

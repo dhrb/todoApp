@@ -11,6 +11,7 @@ function App() {
 	useEffect(() => {
 		loadTodos();
 	}, [filter]);
+
 	const filterHandler = (filter) => {
 		console.log(filter);
 		setFilter(filter);
@@ -63,11 +64,12 @@ function App() {
 			<div className="todoListWrapper">
 				<TodoList
 					todos={todos}
+					filter={filter}
 					loading={loading}
-					handleAddTodo={handleAddTodo}
-					handleToggleComplete={handleToggleComplete}
-					handleDeleteTodo={handleDeleteTodo}
 					filterHandler={filterHandler}
+					handleAddTodo={handleAddTodo}
+					handleDeleteTodo={handleDeleteTodo}
+					handleToggleComplete={handleToggleComplete}
 				/>
 			</div>
 		</div>

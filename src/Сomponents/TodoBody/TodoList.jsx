@@ -4,10 +4,11 @@ import TodoItem from './TodoItem';
 import TodoController from './TodoController';
 
 function TodoList({
-	filterHandler,
 	todos,
+	filter,
 	loading,
 	handleAddTodo,
+	filterHandler,
 	handleDeleteTodo,
 	handleToggleComplete,
 }) {
@@ -27,7 +28,7 @@ function TodoList({
 					/>
 				))}
 			</div>
-			<TodoController filterHandler={filterHandler} todosLength={todosLength} />
+			<TodoController filter={filter} filterHandler={filterHandler} todosLength={todosLength} />
 		</div>
 	);
 }
