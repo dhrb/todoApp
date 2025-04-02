@@ -32,7 +32,12 @@ function TodoItem({ id, text, completed, handleToggleComplete, handleDeleteTodo 
 				type="text"
 				className="todoItemInput"
 			/>
-			<img onClick={() => handleDeleteTodo(id)} src={deleteTaskIcon} alt="deletetaskicon" />
+			<img
+				className="deleteTaskIcon"
+				onClick={() => handleDeleteTodo(id)}
+				src={deleteTaskIcon}
+				alt="deletetaskicon"
+			/>
 		</div>
 	);
 }

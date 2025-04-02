@@ -8,8 +8,8 @@ export const fetchTodos = async (filter = 'all') => {
 	return response.json();
 };
 
-export const addTodo = async (text) => {
-	const newTodo = { text, isCompleted: false, createdAt: new Date().toISOString() };
+export const addTodo = async (text, completed) => {
+	const newTodo = { text, completed: completed, createdAt: new Date().toISOString() };
 	const response = await fetch(API_URL, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },

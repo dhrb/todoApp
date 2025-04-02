@@ -14,7 +14,7 @@ function ThemeSwitcher() {
 	return (
 		<>
 			<img
-				className="theme-button"
+				className="themeButton"
 				onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
 				src={theme === 'dark' ? sunIcon : moonIcon}
 			/>

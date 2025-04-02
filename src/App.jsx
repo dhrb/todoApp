@@ -39,9 +39,9 @@ function App() {
 		}
 	};
 	//new task to db
-	const handleAddTodo = async (title) => {
+	const handleAddTodo = async (title, completed) => {
 		try {
-			const newTodo = await addTodo(title);
+			const newTodo = await addTodo(title, completed);
 			setTodos((prev) => [...prev, newTodo]);
 		} catch (error) {
 			console.error('Adding err:', error);

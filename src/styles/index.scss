@@ -175,6 +175,12 @@ ul {
 						cursor: pointer;
 					}
 				}
+				.deleteTaskIcon {
+					width: 15px;
+					&:hover {
+						cursor: pointer;
+					}
+				}
 			}
 		}
 
